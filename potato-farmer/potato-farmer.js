@@ -239,3 +239,13 @@ function sacrificePotato(){
     }
 
 }
+
+// Rules
+
+function showRules(){
+    document.getElementById("rules-box").style.display = "block";
+}
+
+function hideRules(){
+    document.getElementById("rules-box").style.display = "none";
+}

@@ -15,13 +15,15 @@
             <p>Welcome to Potato! Potato is a one page RPG created by <a href="https://twitter.com/deathbybadger">Oliver Darkshire</a>.
             In this universe, you are a halfling living your life and farming potatoes while a dark lord rampages across the world. What happens next depends entirely on your luck.</p>
             
-            <!--
             <p>If this is your first time playing this one page RPG, it is recommended that you expand the section bellow and read the rules.</p>
 
-            <details>
-                <summary>Click here to expand the game rules</summary>
+            <button type="button" onclick="showRules()">Show rules</button>
+
+            <div id="rules-box">
 
                 <div id="rules">
+
+                    <div class="close-rule-p"><button type="button" onclick="hideRules()">Hide rules</button></div>
 
                     <h2>Game rules:</h2>
     
@@ -42,10 +44,6 @@
     
                     <table>
                         <caption>Grass and Mud... (roll a d6)</caption>
-                        <tr>
-                            <th>#</th>
-                            <th>Event</th>
-                        </tr>
                         <tr>
                             <td><strong>1 or 2</strong></td>
                             <td>In the Garden...</td>
@@ -133,10 +131,7 @@
                     </table>
     
                 </div>
-    
-
-            </details>
-        -->
+        </div>
 
             <div id="game-details">
 
