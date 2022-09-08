@@ -1,28 +1,212 @@
+<!DOCTYPE html>
 <html>
+
     <head>
-        <title>Potato test</title>
-        <script src="script.js"></script>
+        <title>Potato Farmer</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <script src="potato-farmer.js"></script>
     </head>
 
-    <body onload="writeAll()">
-        <h1>Hello, Test</h1>
-        <p>Your scores are:</p>
-        <p>POTATOES: <span id="potatoes"></span>/10</p>
-        <p>DESTINY: <span id="destiny"></span>/10</p>
-        <p>ORCS: <span id="orcs"></span>/10</p>
-        <br>
-        <p>To update all values click in the button bellow:</p>
-        <button type="button" onclick="increaseAll()">Add one</button>
+    <body>
 
-        <br>
-        <br>
+        <main>
+            <h1>Hello, Halfling!</h1>
+            <p>Welcome to Potato! Potato is a one page RPG created by <a href="https://twitter.com/deathbybadger">Oliver Darkshire</a>.
+            In this universe, you are a halfling living your life and farming potatoes while a dark lord rampages across the world. What happens next depends entirely on your luck.</p>
+            
+            <!--
+            <p>If this is your first time playing this one page RPG, it is recommended that you expand the section bellow and read the rules.</p>
 
-        <p>Let's roll the die:</p>
-        <p>Dice 1: <span id="dice1"></span></p>
-        <p>Dice 2: <span id="dice2"></span></p>
-        <br>
-        <p>To roll the die click the button bellow:</p>
-        <button type="button" onclick="rollDie()">Roll Die</button>
+            <details>
+                <summary>Click here to expand the game rules</summary>
+
+                <div id="rules">
+
+                    <h2>Game rules:</h2>
+    
+                    <p>You have three scores: <strong>DESTINY</strong>, <strong>POTATOES</strong> and <strong>ORCS</strong>. At the beginning of the game, each of these scores is set at 0.</p>
+                    <p>To start the game, you will roll a 1d6 to generate an <i>Event</i>. This Event may or may not add points to one of your scores. <strong>Keep rolling new events until one of the following occurs:</strong></p>
+    
+                    <ul>
+                        <li><strong>If your <i>DESTINY</i> score reaches 10:</strong> an interfering bard or wizard turns up at your doorstep with a quest, and you are whisked away against your will on an adventure.</li>
+                        <li><strong>If your <i>POTATOES</i> score reaches 10:</strong> you have enough potatoes that you can go underground and not return to the surface until the danger is past. You nestle down into your burrow and enjoy your well earned rest.</li>
+                        <li><strong>If your <i>ORCS</i> score reaches 10:</strong> orcs finally find your potato farm. Alas, orcs are not so interested in potatoes as they are in eating you, and you end up in a cookpot.</li>
+                    </ul>
+    
+                    <p>At any point in the game, you may choose to sacrifice points in POTATOS to remove 1 pont in ORC. The amount you have to sacrifice starts at 1, but may increase throughout the game.</p>
+    
+                    <br>
+    
+                    <p>When you roll the <i>Event</i> dice, the following may happen:</p>
+    
+                    <table>
+                        <caption>Grass and Mud... (roll a d6)</caption>
+                        <tr>
+                            <th>#</th>
+                            <th>Event</th>
+                        </tr>
+                        <tr>
+                            <td><strong>1 or 2</strong></td>
+                            <td>In the Garden...</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3 or 4</strong></td>
+                            <td>A Knock at the Door...</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5 or 6</strong></td>
+                            <td>The World becomes a darker, more dangerous place. From now on, removing ORCS costs an additional POTATO (this is cummulative).</td>
+                        </tr>
+                    </table>
+    
+                    <br>
+    
+                    <table>
+                        <caption>In the Garden...</caption>
+                        <tr>
+                            <td><strong>1</strong></td>
+                            <td>You happily root about all day in your garden.</td>
+                            <td>+1 POTATO</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2</strong></td>
+                            <td>You narrowly avoid a visitor by hiding in a potato sack.</td>
+                            <td>+1 POTATO <br> +1 DESTINY</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3</strong></td>
+                            <td>A hooded stranger lingers outside your farm.</td>
+                            <td>+1 DESTINY <br> +1 ORC</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4</strong></td>
+                            <td>Your field is ravaged in the night by unseen enemies.</td>
+                            <td>+1 ORC <br> -1 POTATO</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5</strong></td>
+                            <td>You trade potatoes for other delicious foodstuffs.</td>
+                            <td>-1 POTATO</td>
+                        </tr>
+                        <tr>
+                            <td><strong>6</strong></td>
+                            <td>You burrow into a bumper crop of potatoes. Do you cry with joy? Possibly.</td>
+                            <td>+2 POTATOES</td>
+                        </tr>
+                    </table>
+    
+                    <br>
+    
+                    <table>
+                        <caption>A Knock at the Door...</caption>
+                        <tr>
+                            <td><strong>1</strong></td>
+                            <td>A distant cousin. They are after your potatoes. They may snitch on you.</td>
+                            <td>+1 ORC</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2</strong></td>
+                            <td>A dwarven stranger. You refuse them entry. Ghastly creatures.</td>
+                            <td>+1 DESTINY</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3</strong></td>
+                            <td>A wizard strolls by. You pointedly draw the curtains.</td>
+                            <td>+1 DESTINY <br> +1 ORC</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4</strong></td>
+                            <td>There are rumors of war in the reaches. You eat some potatoes.</td>
+                            <td>+2 ORCS <br> -1 POTATO</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5</strong></td>
+                            <td>It's an elf. They are not a serious people.</td>
+                            <td>+1 DESTINY</td>
+                        </tr>
+                        <tr>
+                            <td><strong>6</strong></td>
+                            <td>It's a sack of potatoes from a generous neighbour. You really must remember to pay them a visit one of these years.</td>
+                            <td>+2 POTATOES</td>
+                        </tr>
+                    </table>
+    
+                </div>
+    
+
+            </details>
+        -->
+
+            <div id="game-details">
+
+                <!--Destiny-->
+
+                <div class="score-bars">
+                    <div class="scr-name"><strong>DESTINY</strong></div>
+                    <div class="scr-bar">
+                        <div class="bar-div" style="width: 0%;" id="bar-destiny"></div>
+                    </div>
+                    <div class="scr-point">
+                        <span id="destiny">0</span>/10
+                    </div>
+                </div>
+
+                <!--Potatoes-->
+
+                <div class="score-bars">
+                    <div class="scr-name"><strong>POTATOES</strong></div>
+                    <div class="scr-bar">
+                        <div class="bar-div" style="width: 0%;" id="bar-potatoes"></div>
+                    </div>
+                    <div class="scr-point">
+                        <span id="potatoes">0</span>/10
+                    </div>
+                </div>
+
+                <!--Orcs-->
+
+                <div class="score-bars">
+                    <div class="scr-name"><strong>ORCS</strong></div>
+                    <div class="scr-bar">
+                        <div class="bar-div" style="width: 0%;" id="bar-orcs"></div>
+                    </div>
+                    <div class="scr-point">
+                        <span id="orcs">0</span>/10
+                    </div>
+                </div>
+
+                <br>
+                <br>
+                <p><strong>Current sacrifice cost:</strong> You may sacifice <span id="potato-cost">1</span> POTATO(ES) to remove 1 ORC.</p>
+
+            </div>
+
+        </main>
+
+        <!--Console-->
+
+        <aside>
+
+            <div id="console">
+                <h2>Game Console</h2>
+                <br>
+                <p>Welcome to Potato!</p>
+                <p>Click 'Start Game' to start the game.</p>
+            </div>
+
+            <div id="srt-button-div">
+                <button type="button" onclick="startGame()" id="srt-button">Start Game</button>
+            </div>
+
+            <div id="game-button-div">
+                <button type="button" onclick="rollDice()" id="play-button">Generate Event</button>
+                <button type="button" onclick="sacrificePotato()" id="sacrifice-button">Spend Potato</button>
+                <button type="button" onclick="resetGame()" id="reset-button">Reset Game</button>
+            </div>
+
+        </aside>
+
     </body>
 
 </html>
